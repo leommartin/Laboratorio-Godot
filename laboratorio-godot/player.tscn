@@ -1,7 +1,41 @@
-[gd_scene load_steps=25 format=3 uid="uid://def144ueq43j6"]
+[gd_scene load_steps=35 format=3 uid="uid://def144ueq43j6"]
 
 [ext_resource type="Texture2D" uid="uid://c47s1eu55v0jx" path="res://Tiny Wonder Forest 1.0/characters/main character/walk and idle.png" id="1_fwr83"]
 [ext_resource type="Script" path="res://player.gd" id="1_whl5x"]
+[ext_resource type="Texture2D" uid="uid://bqbq3gyebnygu" path="res://Tiny Wonder Forest 1.0/characters/main character/walk and idle baixo.png" id="2_3rcjq"]
+[ext_resource type="Texture2D" uid="uid://b1c30w6oy34sm" path="res://Tiny Wonder Forest 1.0/characters/main character/walk and idle cima.png" id="2_wlc0l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_806ip"]
+atlas = ExtResource("2_3rcjq")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yxk4"]
+atlas = ExtResource("2_3rcjq")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f251"]
+atlas = ExtResource("2_3rcjq")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eybt"]
+atlas = ExtResource("2_3rcjq")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlcaa"]
+atlas = ExtResource("2_wlc0l")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0af0b"]
+atlas = ExtResource("2_wlc0l")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iybe"]
+atlas = ExtResource("2_wlc0l")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htdx3"]
+atlas = ExtResource("2_wlc0l")
+region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8f1np"]
 atlas = ExtResource("1_fwr83")
@@ -87,6 +121,40 @@ region = Rect2(72, 0, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_806ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yxk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f251")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eybt")
+}],
+"loop": true,
+"name": &"andando_baixo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlcaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0af0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iybe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htdx3")
+}],
+"loop": true,
+"name": &"andando_cima",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8f1np")
 }, {
 "duration": 1.0,
@@ -169,9 +237,9 @@ script = ExtResource("1_whl5x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o6rho")
-animation = &"andando_frente"
+animation = &"andando_baixo"
 autoplay = "parado"
-frame_progress = 0.718359
+frame_progress = 0.604176
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 8)

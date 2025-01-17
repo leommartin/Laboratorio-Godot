@@ -22,8 +22,15 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_left"):
 		$AnimatedSprite2D.play("andando_tras")
+		
 	if Input.is_action_just_pressed("ui_right"):
 		$AnimatedSprite2D.play("andando_frente")
+		
+	if Input.is_action_just_pressed("ui_up"):
+		$AnimatedSprite2D.play("andando_cima")
+		
+	if Input.is_action_just_pressed("ui_down"):
+		$AnimatedSprite2D.play("andando_baixo")
 	
 			
 		
