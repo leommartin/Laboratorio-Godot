@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1vgec6yoikjh"]
+
+[ext_resource type="Script" path="res://challenge.gd" id="1_m2og4"]
+[ext_resource type="PackedScene" uid="uid://p76ddmbxkv5y" path="res://challenge_balloon.tscn" id="2_ghxem"]
+
+[node name="Challenge" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_m2og4")
+
+[node name="ChallengeBalloon" parent="." instance=ExtResource("2_ghxem")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 758.0
+offset_top = -4.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.0808766, 0.400406, 0, 1)
+
+[node name="HintButton" type="Button" parent="."]
+offset_left = 768.0
+offset_top = 605.0
+offset_right = 853.0
+offset_bottom = 639.0
+text = "Dica"

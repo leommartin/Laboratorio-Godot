@@ -1,7 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://def144ueq43j6"]
+[gd_scene load_steps=36 format=3 uid="uid://def144ueq43j6"]
 
 [ext_resource type="Texture2D" uid="uid://c47s1eu55v0jx" path="res://Tiny Wonder Forest 1.0/characters/main character/walk and idle.png" id="1_fwr83"]
-[ext_resource type="Script" path="res://player.gd" id="1_whl5x"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_whl5x"]
 [ext_resource type="Texture2D" uid="uid://bqbq3gyebnygu" path="res://Tiny Wonder Forest 1.0/characters/main character/walk and idle baixo.png" id="2_3rcjq"]
 [ext_resource type="Texture2D" uid="uid://b1c30w6oy34sm" path="res://Tiny Wonder Forest 1.0/characters/main character/walk and idle cima.png" id="2_wlc0l"]
 
@@ -101,21 +101,21 @@ region = Rect2(144, 24, 24, 24)
 atlas = ExtResource("1_fwr83")
 region = Rect2(168, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_du7tr"]
-atlas = ExtResource("1_fwr83")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yrb7"]
+atlas = ExtResource("2_3rcjq")
+region = Rect2(72, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qnbv"]
-atlas = ExtResource("1_fwr83")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dd0m"]
+atlas = ExtResource("2_wlc0l")
 region = Rect2(24, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2cafx"]
-atlas = ExtResource("1_fwr83")
-region = Rect2(48, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlpet"]
+atlas = ExtResource("2_wlc0l")
+region = Rect2(72, 48, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fwnqy"]
-atlas = ExtResource("1_fwr83")
-region = Rect2(72, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0dtt"]
+atlas = ExtResource("2_wlc0l")
+region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6rho"]
 animations = [{
@@ -149,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_htdx3")
 }],
-"loop": true,
+"loop": false,
 "name": &"andando_cima",
 "speed": 5.0
 }, {
@@ -178,7 +178,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nlmgc")
 }],
-"loop": true,
+"loop": false,
 "name": &"andando_frente",
 "speed": 5.0
 }, {
@@ -213,34 +213,61 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_du7tr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8qnbv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2cafx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fwnqy")
+"texture": SubResource("AtlasTexture_0yrb7")
 }],
 "loop": true,
-"name": &"parado",
+"name": &"parado_baixo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dd0m")
+}],
+"loop": true,
+"name": &"parado_cima",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlpet")
+}],
+"loop": true,
+"name": &"parado_direita",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0dtt")
+}],
+"loop": true,
+"name": &"parado_esquerda",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr8h2"]
-size = Vector2(12, 8)
+size = Vector2(14, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7y1cl"]
+radius = 16.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_whl5x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o6rho")
-animation = &"andando_baixo"
-autoplay = "parado"
-frame_progress = 0.604176
+animation = &"parado_esquerda"
+autoplay = "parado_cima"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 8)
+position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_cr8h2")
+
+[node name="Direction" type="Marker2D" parent="."]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_7y1cl")

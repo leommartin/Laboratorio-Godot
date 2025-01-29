@@ -1,0 +1,89 @@
+~ start 
+#
+#Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+#Nathan: Here are some choices.
+#- First one
+#	Nathan: You picked the first one.
+#- Second one
+#	Nathan: You picked the second one.
+#- Start again => start
+#- End the conversation => END
+#Nathan: For more information see the online documentation.
+#
+#=> END!
+
+#Nathan: Hi, Coco!
+#if apple_status == "has"
+#	Coco: I have an apple.
+#	- Give to Nathan
+#		set apple_status = "gave"
+#		Coco: Here you go.
+#		Nathan: Thanks.
+#	- Keep it
+#		Coco: But it's mine.
+#		Nathan: Fair enough.
+#elif apple_status == "gave":
+#	Nathan: Thanks again for the apple.
+#else:
+#	Nathan: I sure wish I had an apple. Apparently there's an apple around here somewhere.
+#
+#=> END
+
+Mago da Fazenda: Ei fazendeiro, pode me ajudar?
+Fazendeiro Do Infinito: Olá, eu sou o Fazendeiro do Infinito. Presenciei toda a evolução destas terras. Posso te ajudar com os desafios que precisar enfrentar. O que aconteceu com você?
+
+- Acabei de chegar aqui e não conheço nada.
+	Fazendeiro Do Infinito: Entendo... Então você precisará de ajuda para começar. O que está buscando no momento?
+	- Estou com sede, onde consigo água?
+		Fazendeiro Do Infinito: O local mais próximo com água fica a 5 quilômetros. Porém, o povo daqui só ajuda quem demonstra suas capacidades. Não se preocupe, eu vou te orientar.
+		Mago da Fazenda: Estou disposto a provar meu valor. Vamos lá!
+	- Estou com muita fome, andei durante dois dias para chegar aqui.
+		Fazendeiro Do Infinito: O local mais próximo com comida fica a 5 quilômetros. Porém, o povo daqui só ajuda quem demonstra suas capacidades. Não se preocupe, eu vou te orientar.
+	- Estou perdido. Preciso de orientação para voltar para casa.
+		Fazendeiro Do Infinito: Não se preocupe, vou te guiar por aqui. Primeiro, é importante ganhar a confiança do povo. Isso será o início.
+		Fazendeiro Do Infinito: Você é muito jovem, não posso permitir que você volte para casa sozinho. Tem um mapa a 5 quilômetros daqui, você precisará passar por alguns desafios para chegar lá. Se conseguir chegar lá, poderá voltar para casa.
+		- Estou disposto a provar o meu valor. Vamos lá!
+		- Preciso muito voltar para casa! Vamos em frente!
+		Fazendeiro Do Infinito: Tudo bem, encontre o primeiro npc e ajude-o.
+
+- Minha família perdeu a fazenda e eu fugi.
+	Fazendeiro Do Infinito: Lamento muito por isso. Aqui você terá uma nova oportunidade, mas precisará se provar. Como posso te ajudar agora?
+	- Preciso de água. Onde encontro?
+		Fazendeiro Do Infinito: O lugar mais próximo com água fica a 5 quilômetros. Mas antes de tudo, é necessário mostrar seu valor ao povo daqui. Eu vou te ajudar com isso.
+		Mago da Fazenda: Não tem problema. Estou pronto para aprender!
+	- Preciso recuperar minha fazenda.
+		Fazendeiro Do Infinito: Recuperar sua fazenda será um grande desafio. Primeiro, você deve ganhar experiência e confiança. Eu estarei aqui para te guiar.
+
+=> END
+
+#	Mago da Fazenda: Ei fazendeiro, pode me ajudar?
+#	Fazendeiro Do Infinito: Olá, eu sou o Fazendeiro do Infinito. Presenciei toda a evolução destas terras, posso te ajudar com todos os desafios que precisar enfrentar. O que você precisa?
+#	- É mesmo? Acabei de chegar a esta fazenda, não conheço nada aqui, meus pais me abandonaram há dois dias e só agora consegui chegar aqui. Serei grato em ter a sua ajuda.
+#		Mago da Fazenda: Estou precisando muito beber água, onde consigo encontrar?
+#		Fazendeiro do Infinito: Ahhh jovenzinho... O lugar com água mais próximo daqui fica a 5 kilômetros daqui. Para que você consiga beber água, você terá que provar sua capacidade para o povo daqui. Mas fique tranquilo, eu vou te ajudar.
+#		Mago da Fazenda: Não tem problema, eu estou disposto a aprender! Vamos lá!
+#	- Sério? Tomaram a fazenda da família mas consegui escapar, caminhei muito para chegar até aqui. Será muito importante ter a sua ajuda para conseguir voltar.
+#		Mago da Fazenda: Estou precisando muito beber água, onde consigo encontrar?
+#		Fazendeiro do Infinito: Ahhh jovenzinho... O lugar com água mais próximo daqui fica a 5 kilômetros daqui. Para que você consiga beber água, você terá que provar sua capacidade para o povo daqui. Mas fique tranquilo, eu vou te ajudar.
+#		Mago da Fazenda: Não tem problema, eu estou disposto a aprender! Vamos lá!
+ 
+~ pick_apple
+
+Coco: It's an apple tree.
+Coco: I'll just take one.
+set apple_status = "has"
+
+
+
+
+# ~ this_is_a_node_title
+# Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+# Nathan: Here are some choices.
+# - First one
+# 	Nathan: You picked the first one.
+# - Second one
+# 	Nathan: You picked the second one.
+# - Start again => this_is_a_node_title
+# - End the conversation => END
+# Nathan: For more information see the online documentation.
+# => END

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://8n6jstsyf0u4"]
+
+[ext_resource type="Texture2D" uid="uid://dlym7e3g1tlw0" path="res://characters/tutor_game.png" id="1_ryltx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_560jt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ryltx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btxlj"]
+size = Vector2(10, 23)
+
+[node name="mestre_fazenda" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(116, 111)
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_560jt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(116, 112)
+shape = SubResource("RectangleShape2D_btxlj")

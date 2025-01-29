@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://chd8bokxvbgxk"]
+
+[ext_resource type="PackedScene" uid="uid://dos6t0cn555l1" path="res://scenes/cenario.tscn" id="1_2xkc6"]
+[ext_resource type="PackedScene" uid="uid://def144ueq43j6" path="res://scenes/player.tscn" id="2_ejcqh"]
+[ext_resource type="PackedScene" uid="uid://8n6jstsyf0u4" path="res://scenes/tutor.tscn" id="3_dpiij"]
+[ext_resource type="PackedScene" uid="uid://icbk7i1vqptq" path="res://scenes/actionable.tscn" id="4_4xqsu"]
+[ext_resource type="Resource" uid="uid://byhqb2j8hoasm" path="res://dialogue/main.dialogue" id="5_uynxw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0yi1"]
+radius = 24.0832
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50nbr"]
+radius = 14.0
+height = 38.0
+
+[node name="principal" type="Node2D"]
+
+[node name="cenario_grama" parent="." instance=ExtResource("1_2xkc6")]
+
+[node name="player" parent="." instance=ExtResource("2_ejcqh")]
+position = Vector2(447, 244)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(14, 9)
+zoom = Vector2(4, 4)
+
+[node name="tutor" parent="." instance=ExtResource("3_dpiij")]
+position = Vector2(227, 127)
+
+[node name="Actionable" parent="tutor" instance=ExtResource("4_4xqsu")]
+dialogue_resource = ExtResource("5_uynxw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="tutor/Actionable"]
+position = Vector2(122, 119)
+shape = SubResource("CircleShape2D_b0yi1")
+one_way_collision_margin = 0.0
+
+[node name="Tree" type="StaticBody2D" parent="."]
+position = Vector2(521, 230)
+
+[node name="Actionable" parent="Tree" instance=ExtResource("4_4xqsu")]
+position = Vector2(-1, 1)
+dialogue_resource = ExtResource("5_uynxw")
+dialogue_start = "pick_apple"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/Actionable"]
+position = Vector2(1, 11)
+shape = SubResource("CapsuleShape2D_50nbr")
