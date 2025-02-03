@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dg4570cwtv8un"
+path="res://.godot/imported/dicas.dialogue-32d5bbd58f2b94910c5895a8fee011f1.tres"
+
+[deps]
+
+source_file="res://dialogue/dicas.dialogue"
+dest_files=["res://.godot/imported/dicas.dialogue-32d5bbd58f2b94910c5895a8fee011f1.tres"]
+
+[params]
+
+defaults=true

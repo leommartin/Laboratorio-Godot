@@ -1,0 +1,11 @@
+ ~ dica1
+Fazendeiro do Infinito: Note que os vetores na Linguagem C iniciam na posição 0, não sendo possível utilizar valores negativos como posições do vetor.
+=> END
+
+~ dica2
+Fazendeiro do Infinito: Lembre-se que ao iniciar o iterador do laço em 0, normalmente utilizamos o operador "<" na condição de parada. 
+=> END
+
+~ dica3
+Fazendeiro do Infinito: Também podemos utilizar o operador "<=", entretanto, haverá um decréscimo no valor da condição de parada.
+=> END

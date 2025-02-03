@@ -16,10 +16,10 @@ script = ExtResource("1_m2og4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -136.0
-offset_top = -35.0
-offset_right = 258.0
-offset_bottom = 616.0
+offset_left = -115.0
+offset_top = -33.0
+offset_right = 259.0
+offset_bottom = 618.0
 color = Color(0.0576378, 0.388478, 2.06962e-06, 1)
 
 [node name="Button" type="Button" parent="."]
@@ -28,8 +28,6 @@ offset_left = -76.0
 offset_top = -12.0
 offset_right = -34.0
 offset_bottom = 19.0
-text = "Dicas"
-
-[node name="HintTimer" type="Timer" parent="."]
+text = "DIca"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

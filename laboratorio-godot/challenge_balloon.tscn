@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://p76ddmbxkv5y"]
+[gd_scene load_steps=10 format=3 uid="uid://d2lxq5trbfmq7"]
 
 [ext_resource type="Script" path="res://dialogue/balloon.gd" id="1_bvqk5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_sbb64"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_ifx1m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -64,7 +65,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
 
 [sub_resource type="Theme" id="Theme_4tp3j"]
 
-[node name="Challenge" type="CanvasLayer"]
+[node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_bvqk5")
 
@@ -87,7 +88,6 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -188.0
-offset_right = 4.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -131,4 +131,34 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Dialogue..."
 
+[node name="Responses" type="MarginContainer" parent="Balloon"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -568.0
+offset_right = 395.0
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 2
+script = ExtResource("3_ifx1m")
+response_template = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+text = "Response example"
+
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
