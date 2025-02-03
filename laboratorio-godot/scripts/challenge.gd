@@ -20,7 +20,7 @@ func _ready():
 
 	# Armazena o texto original do botão
 	original_hint_text = hint_button.text  
-
+	
 func _on_button_pressed() -> void:
 	if not timer.is_stopped():  # Se o Timer ainda estiver rodando, não faz nada
 		return
@@ -60,3 +60,9 @@ func _on_timer_timeout():
 	timer.stop()
 	hint_button.disabled = false  # Reativa o botão após o cooldown
 	hint_button.text = original_hint_text  # Restaura o texto original ("Dicas")
+
+# To do
+
+# Limitar as dicas, ou seja, o botão só pode ser pressionado QUANTIDADE_DE_DICAS vezes
+# Isto é, se existem 3 dicas, o botão poderá ser pressionado 3 vezes.
+# Depois de pressionado 3 vezes o botão é desativado ou fica travado (cor do countdown, etc)
