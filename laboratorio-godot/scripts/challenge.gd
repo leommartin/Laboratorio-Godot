@@ -19,7 +19,8 @@ func _ready():
 	timer.timeout.connect(_update_countdown)
 
 	# Armazena o texto original do botão
-	original_hint_text = hint_button.text  
+	original_hint_text = hint_button.text
+
 	
 func _on_button_pressed() -> void:
 	if not timer.is_stopped():  # Se o Timer ainda estiver rodando, não faz nada
@@ -61,6 +62,7 @@ func _on_timer_timeout():
 	hint_button.disabled = false  # Reativa o botão após o cooldown
 	hint_button.text = original_hint_text  # Restaura o texto original ("Dicas")
 
+	
 # To do
 
 # Limitar as dicas, ou seja, o botão só pode ser pressionado QUANTIDADE_DE_DICAS vezes
